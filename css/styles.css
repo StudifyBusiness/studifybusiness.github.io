@@ -1,4 +1,13 @@
-/* styles.css */
+/* Global styles */
+:root {
+    --bg-color: #121212; /* Dark mode background */
+    --text-color: #ffffff; /* Light text color */
+    --header-bg: #1e1e1e; /* Header background */
+    --btn-bg: #ff5500; /* Button color */
+    --btn-hover: #ff7f33; /* Button hover color */
+}
+
+/* Body */
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -20,20 +29,18 @@ header {
     width: 100%;
     padding: 15px 30px;
     display: flex;
-    justify-content: space-between; /* This ensures logo on the left and buttons on the right */
+    justify-content: space-between; /* Ensures space between logo and buttons */
     align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    transition: background 0.3s ease-in-out;
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
-    flex: 1;  /* This makes the logo take up available space on the left */
-    text-align: left;  /* Align the logo text to the left */
+    color: var(--text-color);
 }
 
 nav {
