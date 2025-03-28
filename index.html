@@ -7,12 +7,13 @@
     <title>Studify</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="dark-mode">
     <header>
         <div class="logo">Studify</div>
         <nav>
             <a href="login.html" class="btn">Login</a>
             <a href="signup.html" class="btn">Sign Up</a>
+            <button id="theme-toggle" class="btn">Toggle Theme</button>
         </nav>
     </header>
     <main>
@@ -25,83 +26,6 @@
     <footer>
         <p>&copy; 2025 Studify. All Rights Reserved.</p>
     </footer>
+    <script src="js/theme-toggle.js"></script>
 </body>
 </html>
-
-/* styles.css */
-body {
-    background-color: #121212;
-    color: white;
-    font-family: 'Roboto Mono', monospace;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-}
-
-header {
-    background: #1e1e1e;
-    width: 100%;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-nav a.btn {
-    background: #ff5500;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    margin-left: 10px;
-}
-
-nav a.btn:hover {
-    background: #e64a00;
-}
-
-.hero {
-    margin-top: 100px;
-}
-
-.hero h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.btn.primary {
-    background: #ff5500;
-    padding: 12px 20px;
-    font-size: 18px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: white;
-}
-
-.btn.primary:hover {
-    background: #e64a00;
-}
-
-footer {
-    margin-top: auto;
-    padding: 20px;
-    font-size: 14px;
-}
