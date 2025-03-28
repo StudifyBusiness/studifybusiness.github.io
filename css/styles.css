@@ -40,12 +40,18 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1000;
     transition: background 0.3s ease-in-out;
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
+}
+
+nav {
+    display: flex;
+    align-items: center;
 }
 
 nav a.btn, button.btn {
@@ -58,14 +64,21 @@ nav a.btn, button.btn {
     border: none;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
+    white-space: nowrap;
 }
 
 nav a.btn:hover, button.btn:hover {
     background: var(--btn-hover);
 }
 
+#theme-toggle {
+    margin-left: 15px;
+    padding: 10px 15px;
+}
+
 .hero {
-    margin-top: 100px;
+    margin-top: 120px;
+    padding: 20px;
 }
 
 .hero h1 {
