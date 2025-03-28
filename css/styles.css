@@ -1,20 +1,4 @@
 /* styles.css */
-:root {
-    --bg-color: #121212;
-    --text-color: white;
-    --header-bg: #1e1e1e;
-    --btn-bg: #ff5500;
-    --btn-hover: #e64a00;
-}
-
-.light-mode {
-    --bg-color: white;
-    --text-color: black;
-    --header-bg: #f1f1f1;
-    --btn-bg: #ff5500;
-    --btn-hover: #e64a00;
-}
-
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -30,25 +14,26 @@ body {
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
+/* Header styling */
 header {
     background: var(--header-bg);
     width: 100%;
     padding: 15px 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* This ensures logo on the left and buttons on the right */
     align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
     transition: background 0.3s ease-in-out;
-    flex-wrap: nowrap;
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
-    flex: 1;
+    flex: 1;  /* This makes the logo take up available space on the left */
+    text-align: left;  /* Align the logo text to the left */
 }
 
 nav {
@@ -78,6 +63,7 @@ nav a.btn:hover, button.btn:hover {
     padding: 10px 15px;
 }
 
+/* Hero section and footer styling */
 .hero {
     margin-top: 120px;
     padding: 20px;
@@ -91,20 +77,6 @@ nav a.btn:hover, button.btn:hover {
 .hero p {
     font-size: 18px;
     margin-bottom: 20px;
-}
-
-.btn.primary {
-    background: var(--btn-bg);
-    padding: 12px 20px;
-    font-size: 18px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: white;
-    transition: background 0.3s ease-in-out;
-}
-
-.btn.primary:hover {
-    background: var(--btn-hover);
 }
 
 footer {
