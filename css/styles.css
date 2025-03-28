@@ -24,7 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100vh;
     text-align: center;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -42,16 +42,22 @@ header {
     left: 0;
     z-index: 1000;
     transition: background 0.3s ease-in-out;
+    flex-wrap: wrap;
+    max-width: 100%;
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
+    flex: 1;
 }
 
 nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    max-width: 50%;
 }
 
 nav a.btn, button.btn {
@@ -74,6 +80,7 @@ nav a.btn:hover, button.btn:hover {
 #theme-toggle {
     margin-left: 15px;
     padding: 10px 15px;
+    margin-top: 10px;
 }
 
 .hero {
