@@ -1,63 +1,99 @@
-/* Global Styles */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto Mono', monospace;
-    background-color: #121212;
-    color: white;
+/* styles.css */
+:root {
+    --bg-color: #121212;
+    --text-color: white;
+    --header-bg: #1e1e1e;
+    --btn-bg: #ff5500;
+    --btn-hover: #e64a00;
 }
 
-/* Top Navigation Bar */
+.light-mode {
+    --bg-color: white;
+    --text-color: black;
+    --header-bg: #f1f1f1;
+    --btn-bg: #ff5500;
+    --btn-hover: #e64a00;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
 header {
-    background-color: #1e1e1e;
-    padding: 15px 20px;
+    background: var(--header-bg);
+    width: 100%;
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: background 0.3s ease-in-out;
 }
 
-nav .logo {
+.logo {
     font-size: 24px;
     font-weight: bold;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
+nav a.btn, button.btn {
+    background: var(--btn-bg);
     color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
     text-decoration: none;
-    font-size: 16px;
-}
-
-/* Buttons */
-.btn {
-    background-color: #ff5500;
-    color: white;
-    padding: 10px 20px;
+    margin-left: 10px;
     border: none;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 16px;
     cursor: pointer;
+    transition: background 0.3s ease-in-out;
 }
 
-.btn:hover {
-    background-color: #e64a00;
+nav a.btn:hover, button.btn:hover {
+    background: var(--btn-hover);
 }
 
-/* Intro Section */
-.intro {
-    text-align: center;
-    padding: 100px 20px;
+.hero {
+    margin-top: 100px;
 }
 
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn.primary {
+    background: var(--btn-bg);
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn.primary:hover {
+    background: var(--btn-hover);
+}
+
+footer {
+    margin-top: auto;
+    padding: 20px;
+    font-size: 14px;
+}
