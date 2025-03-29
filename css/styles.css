@@ -9,6 +9,13 @@
     --btn-hover: #ff7f33; /* Button hover color */
 }
 
+/* Light Mode Variables */
+body.light-mode {
+    --bg-color: #ffffff;
+    --text-color: #121212;
+    --header-bg: #f4f4f4;
+}
+
 /* Body */
 body {
     background-color: var(--bg-color);
@@ -20,18 +27,18 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-/* Header styling */
+/* Header Styling */
 header {
     background: var(--header-bg);
     width: 100%;
     padding: 15px 30px;
     display: flex;
-    justify-content: space-between; /* Keeps logo and buttons spaced */
+    justify-content: space-between; /* Logo on left, buttons on right */
     align-items: center;
     position: fixed;
     top: 0;
@@ -39,28 +46,21 @@ header {
     z-index: 1000;
 }
 
+/* Logo */
 .logo {
     font-size: 24px;
     font-weight: bold;
     color: var(--text-color);
 }
 
-/* Button Frame */
+/* Navigation Container */
 .nav-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  /* Remove fixed width restrictions, or use a max-width with wrapping */
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-nav {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
+/* Buttons */
 nav a.btn, button.btn {
     background: var(--btn-bg);
     color: white;
@@ -71,11 +71,10 @@ nav a.btn, button.btn {
     cursor: pointer;
     transition: background 0.3s ease-in-out;
     white-space: nowrap;
-    max-width: 150px;
     text-align: center;
-    flex-shrink: 1;
 }
 
+/* Button Hover */
 nav a.btn:hover, button.btn:hover {
     background: var(--btn-hover);
 }
@@ -84,35 +83,21 @@ nav a.btn:hover, button.btn:hover {
 #theme-toggle {
     width: 40px;
     height: 40px;
-    border: none;
-    cursor: pointer;
     background: url('buttonimages/light-mode.png') no-repeat center center;
     background-size: contain;
-    flex-shrink: 0; /* Prevents shrinking */
-    margin-right: 10px; /* Space from other buttons */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 10; /* Ensures it’s clickable */
+    flex-shrink: 0; /* Prevents it from shrinking */
+    cursor: pointer;
+    border: none;
 }
 
-#theme-toggle:focus {
-    outline: 2px solid var(--btn-hover);
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #ffffff;
-    color: #121212;
-}
-
-body.dark-mode #theme-toggle {
+/* Dark Mode for Theme Toggle */
+/* When in light-mode, we use the dark icon for the toggle (so clicking it switches to dark) */
+body.light-mode #theme-toggle {
     background: url('buttonimages/dark-mode.png') no-repeat center center;
     background-size: contain;
 }
 
-/* Hero section and footer styling */
+/* Hero Section */
 .hero {
     margin-top: 120px;
     padding: 20px;
@@ -128,8 +113,30 @@ body.dark-mode #theme-toggle {
     margin-bottom: 20px;
 }
 
+/* Footer */
 footer {
     margin-top: auto;
     padding: 20px;
     font-size: 14px;
+    color: var(--text-color);
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-container {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    #theme-toggle {
+        width: 35px;
+        height: 35px;
+    }
 }
