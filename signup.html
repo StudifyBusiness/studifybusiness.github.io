@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - Studify</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script defer src="js/theme-toggle.js"></script>
+  <script defer src="js/nav-handler.js"></script>
+  <script defer src="js/signup.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">Studify</div>
+    <div class="nav-container">
+      <button id="theme-toggle" class="btn" aria-label="Toggle Theme"></button>
+      <a href="login.html" class="btn" id="login-btn">Log In</a>
+      <!-- Sign Up button is hidden on the sign-up page -->
+      <a href="signup.html" class="btn" id="signup-btn" style="display: none;">Sign Up</a>
+      <a href="dashboard.html" class="btn" id="dashboard-btn" style="display: none;">Dashboard</a>
+      <button id="logout-btn" class="btn" style="display: none;">Logout</button>
+    </div>
+  </header>
+  
+  <div class="content-wrapper">
+    <main>
+      <section class="auth-section">
+        <h2>Create Account</h2>
+        <form id="signup-form">
+          <input type="text" id="username" placeholder="Username" required minlength="3" maxlength="24" />
+          <input type="email" id="email" placeholder="Email" required />
+          <input type="password" id="password" placeholder="Password" required minlength="3" maxlength="24" />
+          <button type="submit" class="btn primary">Sign Up</button>
+          <p id="error-msg"></p>
+        </form>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
