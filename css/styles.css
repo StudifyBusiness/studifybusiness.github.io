@@ -1,142 +1,146 @@
-/* styles.css */
-
 /* Root Variables */
 :root {
-    --bg-color: #121212; /* Dark mode background */
-    --text-color: #ffffff; /* Light text color */
-    --header-bg: #1e1e1e; /* Header background */
-    --btn-bg: #ff5500; /* Button color */
-    --btn-hover: #ff7f33; /* Button hover color */
+  --bg-color: #121212;           /* Dark mode background */
+  --text-color: #ffffff;         /* Light text color */
+  --header-bg: #1e1e1e;          /* Header background */
+  --btn-bg: #ff5500;             /* Button base color */
+  --btn-texture: url('../images/button-texture.png');  /* Button texture for dark mode */
+  --btn-hover: #ff7f33;          /* Button hover color */
 }
 
 /* Light Mode Variables */
 body.light-mode {
-    --bg-color: #ffffff;
-    --text-color: #121212;
-    --header-bg: #f4f4f4;
+  --bg-color: #ffffff;
+  --text-color: #121212;
+  --header-bg: #f4f4f4;
+  --btn-bg: #ff5500;
+  --btn-texture: url('../images/button-texture-light.png');  /* Alternative texture for light mode */
+  --btn-hover: #ff7f33;
 }
 
 /* Body */
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'Roboto Mono', monospace;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    text-align: center;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Roboto Mono', monospace;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Header Styling */
 header {
-    background: var(--header-bg);
-    width: 100%;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between; /* Logo on left, buttons on right */
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+  background: var(--header-bg);
+  width: 100%;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between; /* Logo on left, buttons on right */
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 /* Logo */
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--text-color);
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color);
 }
 
 /* Navigation Container */
 .nav-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* Buttons */
-nav a.btn, button.btn {
-    background: var(--btn-bg);
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-    white-space: nowrap;
-    text-align: center;
+/* Buttons (including links and button elements) */
+.btn {
+  background: var(--btn-bg);
+  background-image: var(--btn-texture);
+  background-blend-mode: multiply;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+  text-align: center;
 }
 
 /* Button Hover */
-nav a.btn:hover, button.btn:hover {
-    background: var(--btn-hover);
+.btn:hover {
+  background: var(--btn-hover);
+  background-image: var(--btn-texture);
+  background-blend-mode: multiply;
 }
 
-/* Theme Toggle Button */
+/* Theme Toggle Button Specifics */
 #theme-toggle {
-    width: 40px;
-    height: 40px;
-    background: url('buttonimages/light-mode.png') no-repeat center center;
-    background-size: contain;
-    flex-shrink: 0; /* Prevents it from shrinking */
-    cursor: pointer;
-    border: none;
+  width: 40px;
+  height: 40px;
+  background: url('buttonimages/light-mode.png') no-repeat center center;
+  background-size: contain;
+  flex-shrink: 0;
+  cursor: pointer;
+  border: none;
 }
 
-/* Dark Mode for Theme Toggle */
-/* When in light-mode, we use the dark icon for the toggle (so clicking it switches to dark) */
+/* When in light-mode, use the dark icon on the toggle button */
 body.light-mode #theme-toggle {
-    background: url('buttonimages/dark-mode.png') no-repeat center center;
-    background-size: contain;
+  background: url('buttonimages/dark-mode.png') no-repeat center center;
+  background-size: contain;
 }
 
 /* Hero Section */
 .hero {
-    margin-top: 120px;
-    padding: 20px;
+  margin-top: 120px;
+  padding: 20px;
 }
 
 .hero h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+  font-size: 36px;
+  margin-bottom: 10px;
 }
 
 .hero p {
-    font-size: 18px;
-    margin-bottom: 20px;
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
 /* Footer */
 footer {
-    margin-top: auto;
-    padding: 20px;
-    font-size: 14px;
-    color: var(--text-color);
+  margin-top: auto;
+  padding: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--text-color);
 }
 
-/* Responsive Fixes */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .nav-container {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 10px;
-    }
-    
-    #theme-toggle {
-        width: 35px;
-        height: 35px;
-    }
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  #theme-toggle {
+    width: 35px;
+    height: 35px;
+  }
 }
