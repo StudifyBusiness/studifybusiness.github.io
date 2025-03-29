@@ -47,13 +47,12 @@ header {
 
 /* Button Frame */
 .nav-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-left: auto; /* Pushes buttons to the right */
-    max-width: 60%; /* Prevents buttons from taking full width */
-    overflow: hidden; /* Ensures buttons don’t overflow */
-    flex-wrap: wrap; /* Allows wrapping if needed */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Remove fixed width restrictions, or use a max-width with wrapping */
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 nav {
