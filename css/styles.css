@@ -4,7 +4,7 @@
   --text-color: #ffffff;           /* Text color */
   --header-bg: #1e1e1e;            /* Header background */
   --btn-bg: #ff5500;               /* Base button color */
-  --btn-texture: url('../images/button-texture.png');  /* Path to your button texture */
+  --btn-texture: url('../images/button-texture.png');  /* Button texture image */
   --btn-hover: #ff7f33;            /* Button hover color */
 }
 
@@ -13,19 +13,27 @@ body.light-mode {
   --bg-color: #ffffff;
   --text-color: #121212;
   --header-bg: #f4f4f4;
-  /* You can adjust texture for light mode if needed */
-  --btn-texture: url('../images/button-texture-light.png');
+  --btn-texture: url('../images/button-texture-light.png'); /* Light mode texture */
 }
 
-/* Body */
+/* Global Layout using Flexbox */
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: 'Roboto Mono', monospace;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Wrapper for Main Content and Footer */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 /* Header */
@@ -34,13 +42,12 @@ header {
   width: 100%;
   padding: 15px 30px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Logo on left, nav-container on right */
   align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-  /* Ensure header is tall enough */
   box-sizing: border-box;
 }
 
@@ -56,10 +63,8 @@ header {
   display: flex;
   align-items: center;
   gap: 10px;
-  /* Allow wrapping on small screens */
-  flex-wrap: wrap;
-  /* No overflow clipping */
-  overflow: visible;
+  flex-wrap: wrap; /* Allows wrapping on small screens */
+  overflow: visible; /* Prevents unwanted clipping */
 }
 
 /* Common Button Styling */
@@ -76,13 +81,12 @@ header {
   transition: background 0.3s ease;
   white-space: nowrap;
   text-align: center;
-  /* Ensure buttons fill their own space */
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Hover State */
+/* Hover State for Buttons */
 .btn:hover {
   background: var(--btn-hover);
   background-image: var(--btn-texture);
@@ -95,13 +99,12 @@ header {
   height: 40px;
   background: url('buttonimages/light-mode.png') no-repeat center center;
   background-size: contain;
-  flex-shrink: 0; /* Prevents it from shrinking when space is tight */
+  flex-shrink: 0; /* Prevents the button from shrinking */
   cursor: pointer;
   border: none;
-  /* Ensure it inherits the same button look if needed */
 }
 
-/* When in light-mode, use the alternative icon */
+/* When in Light Mode, change icon */
 body.light-mode #theme-toggle {
   background: url('buttonimages/dark-mode.png') no-repeat center center;
   background-size: contain;
@@ -123,7 +126,7 @@ body.light-mode #theme-toggle {
   margin-bottom: 20px;
 }
 
-/* Primary Button for Call-to-Action */
+/* Primary Call-to-Action Button */
 .btn.primary {
   background: var(--btn-bg);
   background-image: var(--btn-texture);
@@ -132,12 +135,13 @@ body.light-mode #theme-toggle {
   font-size: 18px;
 }
 
-/* Footer */
+/* Footer - Always at the bottom */
 footer {
+  background: var(--header-bg);
+  color: var(--text-color);
+  text-align: center;
   padding: 20px;
   font-size: 14px;
-  text-align: center;
-  color: var(--text-color);
 }
 
 /* Responsive Adjustments */
