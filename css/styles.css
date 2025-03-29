@@ -1,11 +1,11 @@
 /* Root Variables */
 :root {
-  --bg-color: #121212;           /* Dark mode background */
-  --text-color: #ffffff;         /* Light text color */
-  --header-bg: #1e1e1e;          /* Header background */
-  --btn-bg: #ff5500;             /* Button base color */
-  --btn-texture: url('../images/button-texture.png');  /* Button texture for dark mode */
-  --btn-hover: #ff7f33;          /* Button hover color */
+  --bg-color: #121212;             /* Dark mode background */
+  --text-color: #ffffff;           /* Text color */
+  --header-bg: #1e1e1e;            /* Header background */
+  --btn-bg: #ff5500;               /* Base button color */
+  --btn-texture: url('../images/button-texture.png');  /* Path to your button texture */
+  --btn-hover: #ff7f33;            /* Button hover color */
 }
 
 /* Light Mode Variables */
@@ -13,9 +13,8 @@ body.light-mode {
   --bg-color: #ffffff;
   --text-color: #121212;
   --header-bg: #f4f4f4;
-  --btn-bg: #ff5500;
-  --btn-texture: url('../images/button-texture-light.png');  /* Alternative texture for light mode */
-  --btn-hover: #ff7f33;
+  /* You can adjust texture for light mode if needed */
+  --btn-texture: url('../images/button-texture-light.png');
 }
 
 /* Body */
@@ -25,25 +24,24 @@ body {
   font-family: 'Roboto Mono', monospace;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Header Styling */
+/* Header */
 header {
   background: var(--header-bg);
   width: 100%;
   padding: 15px 30px;
   display: flex;
-  justify-content: space-between; /* Logo on left, buttons on right */
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+  /* Ensure header is tall enough */
+  box-sizing: border-box;
 }
 
 /* Logo */
@@ -58,9 +56,13 @@ header {
   display: flex;
   align-items: center;
   gap: 10px;
+  /* Allow wrapping on small screens */
+  flex-wrap: wrap;
+  /* No overflow clipping */
+  overflow: visible;
 }
 
-/* Buttons (including links and button elements) */
+/* Common Button Styling */
 .btn {
   background: var(--btn-bg);
   background-image: var(--btn-texture);
@@ -74,9 +76,13 @@ header {
   transition: background 0.3s ease;
   white-space: nowrap;
   text-align: center;
+  /* Ensure buttons fill their own space */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Button Hover */
+/* Hover State */
 .btn:hover {
   background: var(--btn-hover);
   background-image: var(--btn-texture);
@@ -89,12 +95,13 @@ header {
   height: 40px;
   background: url('buttonimages/light-mode.png') no-repeat center center;
   background-size: contain;
-  flex-shrink: 0;
+  flex-shrink: 0; /* Prevents it from shrinking when space is tight */
   cursor: pointer;
   border: none;
+  /* Ensure it inherits the same button look if needed */
 }
 
-/* When in light-mode, use the dark icon on the toggle button */
+/* When in light-mode, use the alternative icon */
 body.light-mode #theme-toggle {
   background: url('buttonimages/dark-mode.png') no-repeat center center;
   background-size: contain;
@@ -102,7 +109,7 @@ body.light-mode #theme-toggle {
 
 /* Hero Section */
 .hero {
-  margin-top: 120px;
+  margin-top: 100px;  /* Leave room for fixed header */
   padding: 20px;
 }
 
@@ -116,9 +123,17 @@ body.light-mode #theme-toggle {
   margin-bottom: 20px;
 }
 
+/* Primary Button for Call-to-Action */
+.btn.primary {
+  background: var(--btn-bg);
+  background-image: var(--btn-texture);
+  background-blend-mode: multiply;
+  padding: 12px 20px;
+  font-size: 18px;
+}
+
 /* Footer */
 footer {
-  margin-top: auto;
   padding: 20px;
   font-size: 14px;
   text-align: center;
@@ -126,19 +141,14 @@ footer {
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   header {
     flex-direction: column;
     align-items: center;
   }
-  
   .nav-container {
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
   }
-  
   #theme-toggle {
     width: 35px;
     height: 35px;
