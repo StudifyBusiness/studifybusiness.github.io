@@ -135,15 +135,6 @@ body.light-mode #theme-toggle {
   font-size: 18px;
 }
 
-/* Footer - Always at the bottom */
-footer {
-  background: var(--header-bg);
-  color: var(--text-color);
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-}
-
 /* Responsive Adjustments */
 @media (max-width: 600px) {
   header {
