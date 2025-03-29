@@ -1,4 +1,6 @@
-/* Global styles */
+/* styles.css */
+
+/* Root Variables */
 :root {
     --bg-color: #121212; /* Dark mode background */
     --text-color: #ffffff; /* Light text color */
@@ -65,9 +67,25 @@ nav a.btn:hover, button.btn:hover {
     background: var(--btn-hover);
 }
 
+/* Theme Toggle Button */
 #theme-toggle {
-    margin-left: 15px;
-    padding: 10px 15px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background: url('buttonimages/light-mode.png') no-repeat center center;
+    background-size: contain;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+body.dark-mode #theme-toggle {
+    background: url('buttonimages/dark-mode.png') no-repeat center center;
+    background-size: contain;
 }
 
 /* Hero section and footer styling */
