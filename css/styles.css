@@ -31,7 +31,7 @@ header {
     width: 100%;
     padding: 15px 30px;
     display: flex;
-    justify-content: space-between; /* Ensures space between logo and buttons */
+    justify-content: space-between; /* Keeps logo and buttons spaced */
     align-items: center;
     position: fixed;
     top: 0;
@@ -50,6 +50,7 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-left: auto; /* Pushes buttons to the right */
     max-width: 60%; /* Prevents buttons from taking full width */
     overflow: hidden; /* Ensures buttons don’t overflow */
     flex-wrap: wrap; /* Allows wrapping if needed */
@@ -90,6 +91,15 @@ nav a.btn:hover, button.btn:hover {
     background-size: contain;
     flex-shrink: 0; /* Prevents shrinking */
     margin-right: 10px; /* Space from other buttons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10; /* Ensures it’s clickable */
+}
+
+#theme-toggle:focus {
+    outline: 2px solid var(--btn-hover);
 }
 
 /* Dark Mode */
