@@ -1,21 +1,20 @@
 /* Root Variables */
 :root {
-  --bg-color: #121212;             /* Dark mode background */
-  --text-color: #ffffff;           /* Dark mode text */
-  --header-bg: #1e1e1e;            /* Dark header background */
-  --btn-bg: #ff5500;               /* Base button color (dark mode) */
-  --btn-texture: url('../images/button-texture.png');  /* Button texture (dark mode) */
-  --btn-hover: #ff7f33;            /* Button hover color */
+  /* Dark mode (black and white) */
+  --bg-color: #000000;             /* Dark mode background: pure black */
+  --text-color: #ffffff;           /* Dark mode text: white */
+  --header-bg: #000000;            /* Header background: black */
+  --btn-bg: #000000;               /* Button background in dark mode: same as background */
+  --btn-hover: #222222;            /* Slightly lighter for hover effect */
 }
 
 /* Light Mode Overrides */
 body.light-mode {
-  --bg-color: #ffffff;
-  --text-color: #121212;
-  --header-bg: #f4f4f4;
-  --btn-bg: var(--header-bg);      /* In light mode, text buttons match header background */
-  --btn-texture: none;             /* Remove texture for light mode text buttons */
-  --btn-hover: #d4d4d4;
+  --bg-color: #ffffff;             /* Light mode background: white */
+  --text-color: #000000;           /* Light mode text: black */
+  --header-bg: #ffffff;            /* Header background: white */
+  --btn-bg: #ffffff;               /* Button background in light mode: white (matches header) */
+  --btn-hover: #e0e0e0;            /* Hover state for light mode */
 }
 
 /* Global Styles */
@@ -79,37 +78,44 @@ header {
   padding: 0 15px;
   margin: 0;
   background: var(--btn-bg);
-  background-image: var(--btn-texture);
-  background-blend-mode: multiply;
-  color: #fff;
+  /* Remove any texture in this black & white theme */
+  background-image: none;
+  color: var(--text-color);
   border: none;
   border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
+  text-align: center;
   transition: background 0.3s ease;
 }
 
 /* Hover State */
 .btn:hover {
   background: var(--btn-hover);
-  background-image: var(--btn-texture);
-  background-blend-mode: multiply;
 }
 
 /* Theme Toggle Button Specifics */
 #theme-toggle {
   width: 40px;
   height: 40px;
+  /* In dark mode, use an icon suitable for toggling to light mode, and vice versa */
   background: url('buttonimages/light-mode.png') no-repeat center center;
   background-size: contain;
   flex-shrink: 0;
+  cursor: pointer;
+  border: none;
 }
 
-/* Light Mode for Theme Toggle */
+/* When in Light Mode, change theme toggle icon */
 body.light-mode #theme-toggle {
   background: url('buttonimages/dark-mode.png') no-repeat center center;
   background-size: contain;
+}
+
+/* Adjust text buttons in light mode so that text becomes black */
+body.light-mode .btn {
+  color: #000000;
 }
 
 /* Hero Section */
@@ -142,7 +148,7 @@ body.light-mode #theme-toggle {
 
 /* Use dark background in dark mode; override to header color in light mode */
 .features {
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--header-bg);
 }
 
 body.light-mode .features,
