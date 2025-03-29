@@ -1,3 +1,5 @@
+/* styles.css */
+
 /* Root Variables */
 :root {
     --bg-color: #121212; /* Dark mode background */
@@ -5,13 +7,6 @@
     --header-bg: #1e1e1e; /* Header background */
     --btn-bg: #ff5500; /* Button color */
     --btn-hover: #ff7f33; /* Button hover color */
-}
-
-/* Light Mode Variables */
-body.light-mode {
-    --bg-color: #ffffff;
-    --text-color: #121212;
-    --header-bg: #f4f4f4;
 }
 
 /* Body */
@@ -30,7 +25,7 @@ body {
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-/* Header Styling */
+/* Header styling */
 header {
     background: var(--header-bg);
     width: 100%;
@@ -44,31 +39,28 @@ header {
     z-index: 1000;
 }
 
-/* Logo */
 .logo {
     font-size: 24px;
     font-weight: bold;
     color: var(--text-color);
 }
 
-/* Navigation Bar */
+/* Button Frame */
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 60%; /* Prevents buttons from taking full width */
+    overflow: hidden; /* Ensures buttons don’t overflow */
+    flex-wrap: wrap; /* Allows wrapping if needed */
+}
+
 nav {
     display: flex;
     align-items: center;
-    gap: 15px; /* Ensures proper spacing between buttons */
+    gap: 10px;
 }
 
-/* Theme Toggle Button - Moves to the left of other buttons */
-#theme-toggle {
-    width: 40px;
-    height: 40px;
-    border: none;
-    cursor: pointer;
-    background: url('../buttonimages/light-mode.png') no-repeat center center;
-    background-size: contain;
-}
-
-/* Buttons */
 nav a.btn, button.btn {
     background: var(--btn-bg);
     color: white;
@@ -79,30 +71,37 @@ nav a.btn, button.btn {
     cursor: pointer;
     transition: background 0.3s ease-in-out;
     white-space: nowrap;
+    max-width: 150px;
+    text-align: center;
+    flex-shrink: 1;
 }
 
 nav a.btn:hover, button.btn:hover {
     background: var(--btn-hover);
 }
 
-/* Light Mode */
-body.light-mode #theme-toggle {
-    background: url('../buttonimages/dark-mode.png') no-repeat center center;
+/* Theme Toggle Button */
+#theme-toggle {
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background: url('buttonimages/light-mode.png') no-repeat center center;
     background-size: contain;
 }
 
-/* Flexbox Fix for Theme Toggle Button */
-nav {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+/* Dark Mode */
+body.dark-mode {
+    background-color: #ffffff;
+    color: #121212;
 }
 
-#theme-toggle {
-    order: -1; /* Moves theme toggle to the left */
+body.dark-mode #theme-toggle {
+    background: url('buttonimages/dark-mode.png') no-repeat center center;
+    background-size: contain;
 }
 
-/* Hero Section */
+/* Hero section and footer styling */
 .hero {
     margin-top: 120px;
     padding: 20px;
@@ -118,30 +117,8 @@ nav {
     margin-bottom: 20px;
 }
 
-/* Footer */
 footer {
     margin-top: auto;
     padding: 20px;
     font-size: 14px;
-    color: var(--text-color);
-}
-
-/* Responsive Fixes */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav {
-        flex-direction: row;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 10px;
-    }
-
-    #theme-toggle {
-        width: 35px;
-        height: 35px;
-    }
 }
