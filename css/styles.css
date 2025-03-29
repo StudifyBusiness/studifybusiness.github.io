@@ -88,6 +88,8 @@ nav a.btn:hover, button.btn:hover {
     cursor: pointer;
     background: url('buttonimages/light-mode.png') no-repeat center center;
     background-size: contain;
+    flex-shrink: 0; /* Prevents shrinking */
+    margin-right: 10px; /* Space from other buttons */
 }
 
 /* Dark Mode */
