@@ -1,34 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Studify</title>
-  <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studify - Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="js/theme-toggle.js"></script>
+    <script defer src="js/auth.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--header-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            z-index: 1000;
+        }
+
+        main {
+            margin-top: 80px;
+            padding: 20px;
+        }
+
+        .hero, .features, .user-dashboard {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 36px;
+        }
+
+        .features h2, .user-dashboard h2 {
+            font-size: 28px;
+        }
+
+        .feature-box {
+            text-align: left;
+            padding: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 10px;
+            background: var(--btn-bg);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background: var(--btn-hover);
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="logo">Studify</div>
-    <div class="nav-container">
-      <!-- Theme Toggle Button (image button) -->
-      <button id="theme-toggle" class="btn" aria-label="Toggle Theme"></button>
-      <!-- Other Buttons -->
-      <a href="login.html" class="btn">Login</a>
-      <a href="signup.html" class="btn">Sign Up</a>
-    </div>
-  </header>
-
-  <!-- Content Wrapper ensures footer is pushed to bottom when content is sparse -->
-  <div class="content-wrapper">
+    <header>
+        <div class="logo">Studify</div>
+        <nav>
+            <button id="theme-toggle" class="btn"></button>
+            <a href="login.html" class="btn" id="login-btn">Log In</a>
+            <a href="signup.html" class="btn" id="signup-btn">Sign Up</a>
+            <a href="dashboard.html" class="btn" id="dashboard-btn" style="display: none;">Dashboard</a>
+            <button id="logout-btn" class="btn" style="display: none;">Logout</button>
+        </nav>
+    </header>
+    
     <main>
-      <section class="hero">
-        <h1>Master Your Studies with Studify</h1>
-        <p>Create, organize, and review flashcards effortlessly.</p>
-        <a href="signup.html" class="btn primary">Get Started</a>
-      </section>
+        <section class="hero" id="hero">
+            <h1>Welcome to Studify</h1>
+            <p>Your ultimate tool for studying smarter with flashcards.</p>
+        </section>
+
+        <section class="features">
+            <h2>Why Choose Studify?</h2>
+            <div class="feature-box">
+                <p>✔ Create & manage your own flashcard sets.</p>
+                <p>✔ Study with an easy-to-use interface.</p>
+                <p>✔ Track progress and improve efficiency.</p>
+            </div>
+        </section>
+
+        <section class="user-dashboard" id="user-dashboard" style="display: none;">
+            <h2>Your Dashboard</h2>
+            <div class="recent-sets">
+                <h3>Recently Studied Sets</h3>
+                <ul id="recent-sets-list"></ul>
+            </div>
+            <div class="quick-access">
+                <a href="create-set.html" class="btn">Create New Set</a>
+                <a href="yoursets.html" class="btn">View Your Library</a>
+            </div>
+        </section>
     </main>
-  </div>
-  
-  <script src="js/theme-toggle.js"></script>
 </body>
 </html>
