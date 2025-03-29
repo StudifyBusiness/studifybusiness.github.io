@@ -4,7 +4,7 @@
   --text-color: #ffffff;           /* Text color */
   --header-bg: #1e1e1e;            /* Header background */
   --btn-bg: #ff5500;               /* Base button color */
-  --btn-texture: url('../images/button-texture.png');  /* Button texture image */
+  --btn-texture: url('../images/button-texture.png');  /* Button texture for dark mode */
   --btn-hover: #ff7f33;            /* Button hover color */
 }
 
@@ -13,7 +13,10 @@ body.light-mode {
   --bg-color: #ffffff;
   --text-color: #121212;
   --header-bg: #f4f4f4;
-  --btn-texture: url('../images/button-texture-light.png'); /* Light mode texture */
+  /* For light mode, text buttons will use the header background for a cleaner look */
+  --btn-bg: var(--header-bg);
+  --btn-texture: none;
+  --btn-hover: #d4d4d4;
 }
 
 /* Global Layout using Flexbox */
@@ -29,7 +32,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Wrapper for Main Content and Footer */
+/* Wrapper for Main Content */
 .content-wrapper {
   display: flex;
   flex-direction: column;
@@ -63,17 +66,21 @@ header {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap; /* Allows wrapping on small screens */
-  overflow: visible; /* Prevents unwanted clipping */
+  flex-wrap: wrap;
+  overflow: visible;
 }
 
 /* Common Button Styling */
 .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  margin: 0; /* Remove extra margins to ensure equal height alignment */
   background: var(--btn-bg);
   background-image: var(--btn-texture);
   background-blend-mode: multiply;
   color: #fff;
-  padding: 10px 15px;
   border-radius: 5px;
   text-decoration: none;
   border: none;
@@ -81,12 +88,17 @@ header {
   transition: background 0.3s ease;
   white-space: nowrap;
   text-align: center;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  /* Set a consistent height for all buttons (including anchor buttons) */
+  height: 40px;
+  line-height: 40px;
 }
 
-/* Hover State for Buttons */
+/* Text-based buttons (Login/Signup/etc.) get a separate class for possible overrides */
+.text-btn {
+  /* In light mode, these buttons match the header background */
+}
+
+/* Hover State */
 .btn:hover {
   background: var(--btn-hover);
   background-image: var(--btn-texture);
@@ -99,12 +111,12 @@ header {
   height: 40px;
   background: url('buttonimages/light-mode.png') no-repeat center center;
   background-size: contain;
-  flex-shrink: 0; /* Prevents the button from shrinking */
+  flex-shrink: 0;
   cursor: pointer;
   border: none;
 }
 
-/* When in Light Mode, change icon */
+/* When in Light Mode, change theme toggle icon */
 body.light-mode #theme-toggle {
   background: url('buttonimages/dark-mode.png') no-repeat center center;
   background-size: contain;
@@ -114,6 +126,7 @@ body.light-mode #theme-toggle {
 .hero {
   margin-top: 100px;  /* Leave room for fixed header */
   padding: 20px;
+  text-align: center;
 }
 
 .hero h1 {
@@ -126,13 +139,35 @@ body.light-mode #theme-toggle {
   margin-bottom: 20px;
 }
 
-/* Primary Call-to-Action Button */
-.btn.primary {
-  background: var(--btn-bg);
-  background-image: var(--btn-texture);
-  background-blend-mode: multiply;
-  padding: 12px 20px;
-  font-size: 18px;
+/* Features Section */
+.features {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.features h2 {
+  font-size: 28px;
+}
+
+.feature-box {
+  text-align: left;
+  padding: 15px;
+}
+
+/* User Dashboard Section */
+.user-dashboard {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Adjustments */
@@ -147,5 +182,9 @@ body.light-mode #theme-toggle {
   #theme-toggle {
     width: 35px;
     height: 35px;
+  }
+  .btn {
+    height: 35px;
+    line-height: 35px;
   }
 }
