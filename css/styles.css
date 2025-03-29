@@ -83,7 +83,7 @@ header {
   background: var(--btn-bg);
   color: var(--text-color);
   border: none;
-  border-radius: 5px;
+  border-radius: 14px;
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
@@ -140,7 +140,7 @@ body.light-mode .btn {
   max-width: 900px;
   margin: 50px auto;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 14px;
   text-align: center;
   background: var(--box-bg); /* Adjusted background for visibility */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
