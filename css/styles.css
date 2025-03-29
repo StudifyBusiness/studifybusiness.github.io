@@ -52,7 +52,6 @@ header {
   align-items: center;
   z-index: 1000;
   box-sizing: border-box;
-  border-bottom: 2px solid var(--btn-hover); /* Adds a slight division */
 }
 
 /* Logo */
