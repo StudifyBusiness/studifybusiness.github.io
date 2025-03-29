@@ -58,6 +58,16 @@ nav {
     gap: 15px; /* Ensures proper spacing between buttons */
 }
 
+/* Theme Toggle Button - Moves to the left of other buttons */
+#theme-toggle {
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background: url('../buttonimages/light-mode.png') no-repeat center center;
+    background-size: contain;
+}
+
 /* Buttons */
 nav a.btn, button.btn {
     background: var(--btn-bg);
@@ -75,20 +85,21 @@ nav a.btn:hover, button.btn:hover {
     background: var(--btn-hover);
 }
 
-/* Theme Toggle Button */
-#theme-toggle {
-    width: 40px;
-    height: 40px;
-    border: none;
-    cursor: pointer;
-    background: url('../buttonimages/light-mode.png') no-repeat center center;
-    background-size: contain;
-}
-
-/* Dark Mode */
+/* Light Mode */
 body.light-mode #theme-toggle {
     background: url('../buttonimages/dark-mode.png') no-repeat center center;
     background-size: contain;
+}
+
+/* Flexbox Fix for Theme Toggle Button */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#theme-toggle {
+    order: -1; /* Moves theme toggle to the left */
 }
 
 /* Hero Section */
