@@ -1,25 +1,24 @@
 /* Root Variables */
 :root {
   --bg-color: #121212;             /* Dark mode background */
-  --text-color: #ffffff;           /* Text color */
-  --header-bg: #1e1e1e;            /* Header background */
-  --btn-bg: #ff5500;               /* Base button color */
-  --btn-texture: url('../images/button-texture.png');  /* Button texture for dark mode */
+  --text-color: #ffffff;           /* Dark mode text */
+  --header-bg: #1e1e1e;            /* Dark header background */
+  --btn-bg: #ff5500;               /* Base button color (dark mode) */
+  --btn-texture: url('../images/button-texture.png');  /* Button texture (dark mode) */
   --btn-hover: #ff7f33;            /* Button hover color */
 }
 
-/* Light Mode Variables */
+/* Light Mode Overrides */
 body.light-mode {
   --bg-color: #ffffff;
   --text-color: #121212;
   --header-bg: #f4f4f4;
-  /* For light mode, text buttons will use the header background for a cleaner look */
-  --btn-bg: var(--header-bg);
-  --btn-texture: none;
+  --btn-bg: var(--header-bg);      /* In light mode, text buttons match header background */
+  --btn-texture: none;             /* Remove texture for light mode text buttons */
   --btn-hover: #d4d4d4;
 }
 
-/* Global Layout using Flexbox */
+/* Global Styles */
 body {
   display: flex;
   flex-direction: column;
@@ -41,15 +40,15 @@ body {
 
 /* Header */
 header {
-  background: var(--header-bg);
-  width: 100%;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between; /* Logo on left, nav-container on right */
-  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  padding: 15px 30px;
+  background: var(--header-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   z-index: 1000;
   box-sizing: border-box;
 }
@@ -70,32 +69,25 @@ header {
   overflow: visible;
 }
 
-/* Common Button Styling */
+/* Button Base Styles */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 15px;
-  margin: 0; /* Remove extra margins to ensure equal height alignment */
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  margin: 0;
   background: var(--btn-bg);
   background-image: var(--btn-texture);
   background-blend-mode: multiply;
   color: #fff;
+  border: none;
   border-radius: 5px;
   text-decoration: none;
-  border: none;
   cursor: pointer;
-  transition: background 0.3s ease;
   white-space: nowrap;
-  text-align: center;
-  /* Set a consistent height for all buttons (including anchor buttons) */
-  height: 40px;
-  line-height: 40px;
-}
-
-/* Text-based buttons (Login/Signup/etc.) get a separate class for possible overrides */
-.text-btn {
-  /* In light mode, these buttons match the header background */
+  transition: background 0.3s ease;
 }
 
 /* Hover State */
@@ -112,11 +104,9 @@ header {
   background: url('buttonimages/light-mode.png') no-repeat center center;
   background-size: contain;
   flex-shrink: 0;
-  cursor: pointer;
-  border: none;
 }
 
-/* When in Light Mode, change theme toggle icon */
+/* Light Mode for Theme Toggle */
 body.light-mode #theme-toggle {
   background: url('buttonimages/dark-mode.png') no-repeat center center;
   background-size: contain;
@@ -124,7 +114,7 @@ body.light-mode #theme-toggle {
 
 /* Hero Section */
 .hero {
-  margin-top: 100px;  /* Leave room for fixed header */
+  margin-top: 100px;  /* Space for fixed header */
   padding: 20px;
   text-align: center;
 }
@@ -139,35 +129,37 @@ body.light-mode #theme-toggle {
   margin-bottom: 20px;
 }
 
-/* Features Section */
-.features {
-  max-width: 900px;
-  margin: 50px auto;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.features h2 {
-  font-size: 28px;
-}
-
-.feature-box {
-  text-align: left;
-  padding: 15px;
-}
-
-/* User Dashboard Section */
+/* Features & Dashboard Sections */
+.features,
 .user-dashboard {
   max-width: 900px;
   margin: 50px auto;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
   text-align: center;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Use dark background in dark mode; override to header color in light mode */
+.features {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+body.light-mode .features,
+body.light-mode .user-dashboard {
+  background: var(--header-bg);
+  box-shadow: none;
+}
+
+.features h2,
+.user-dashboard h2 {
+  font-size: 28px;
+}
+
+/* Feature Box */
+.feature-box {
+  text-align: left;
+  padding: 15px;
 }
 
 /* Responsive Adjustments */
@@ -186,5 +178,6 @@ body.light-mode #theme-toggle {
   .btn {
     height: 35px;
     line-height: 35px;
+    padding: 0 12px;
   }
 }
