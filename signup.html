@@ -14,6 +14,7 @@
     <header>
         <div class="logo">Studify</div>
         <nav>
+            <button id="theme-toggle" class="btn"></button>
             <a href="index.html" class="btn">Home</a>
             <a href="login.html" class="btn">Login</a>
         </nav>
@@ -33,14 +34,14 @@
     <script>
         // Firebase Configuration
         const firebaseConfig = {
-  apiKey: "AIzaSyBH8aAKoyjGyMB8Cu_vzY4YuNgaaNmA5ec",
-  authDomain: "studify-d2fbc.firebaseapp.com",
-  projectId: "studify-d2fbc",
-  storageBucket: "studify-d2fbc.firebasestorage.app",
-  messagingSenderId: "857227078095",
-  appId: "1:857227078095:web:4afd99e714e7ef471ecaba",
-  measurementId: "G-FGS6KXSL7L"
-};
+            apiKey: "AIzaSyBH8aAKoyjGyMB8Cu_vzY4YuNgaaNmA5ec",
+            authDomain: "studify-d2fbc.firebaseapp.com",
+            projectId: "studify-d2fbc",
+            storageBucket: "studify-d2fbc.firebasestorage.app",
+            messagingSenderId: "857227078095",
+            appId: "1:857227078095:web:4afd99e714e7ef471ecaba",
+            measurementId: "G-FGS6KXSL7L"
+        };
         
         // Initialize Firebase
         const app = firebase.initializeApp(firebaseConfig);
@@ -67,6 +68,21 @@
                 .catch((error) => {
                     document.getElementById("error-message").textContent = error.message;
                 });
+        });
+
+        // Theme Toggle Logic
+        document.addEventListener("DOMContentLoaded", () => {
+            const themeToggle = document.getElementById("theme-toggle");
+            const body = document.body;
+
+            if (localStorage.getItem("theme") === "light-mode") {
+                body.classList.add("light-mode");
+            }
+
+            themeToggle.addEventListener("click", () => {
+                body.classList.toggle("light-mode");
+                localStorage.setItem("theme", body.classList.contains("light-mode") ? "light-mode" : "dark-mode");
+            });
         });
     </script>
 </body>
