@@ -14,9 +14,16 @@
     <header>
         <div class="logo">Studify</div>
         <nav>
-            <button id="theme-toggle" class="btn">🌓</button>
-            <a href="index.html" class="btn">Home</a>
-            <a href="login.html" class="btn">Login</a>
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="btn">
+                <img src="buttonimages/darkmode.png" id="theme-icon" alt="Theme Toggle">
+            </button>
+            <a href="index.html" class="btn">
+                <img src="buttonimages/home.png" alt="Home">
+            </a>
+            <a href="login.html" class="btn">
+                <img src="buttonimages/login.png" alt="Login">
+            </a>
         </nav>
     </header>
     
@@ -73,15 +80,27 @@
         // Theme Toggle Logic
         document.addEventListener("DOMContentLoaded", () => {
             const themeToggle = document.getElementById("theme-toggle");
+            const themeIcon = document.getElementById("theme-icon");
             const body = document.body;
+
+            function updateThemeIcon() {
+                if (body.classList.contains("light-mode")) {
+                    themeIcon.src = "buttonimages/lightmode.png";
+                } else {
+                    themeIcon.src = "buttonimages/darkmode.png";
+                }
+            }
 
             if (localStorage.getItem("theme") === "light-mode") {
                 body.classList.add("light-mode");
             }
 
+            updateThemeIcon();
+
             themeToggle.addEventListener("click", () => {
                 body.classList.toggle("light-mode");
                 localStorage.setItem("theme", body.classList.contains("light-mode") ? "light-mode" : "dark-mode");
+                updateThemeIcon();
             });
         });
     </script>
